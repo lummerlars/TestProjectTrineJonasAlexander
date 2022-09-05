@@ -11,7 +11,6 @@ public class PN {
      * Returner false ellers, og datoen givesDen ignoreres.
      */
     public boolean givDosis(LocalDate givesDen) {
-
         return false;
     }
 

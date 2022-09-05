@@ -17,6 +17,7 @@ import javafx.stage.StageStyle;
 import ordination.Laegemiddel;
 import ordination.Patient;
 
+import java.awt.*;
 import java.time.LocalTime;
 
 public class OpretOrdinationDialog extends Stage {

@@ -7,6 +7,8 @@ import javafx.scene.control.ListView;
 import javafx.scene.layout.GridPane;
 import ordination.*;
 
+import javax.swing.text.html.ListView;
+
 public class VisOrdinationPane extends GridPane {
     private final ListView<Patient> lstPatient = new ListView<>();
     private final ListView<Ordination> lstOrdination = new ListView<>();
