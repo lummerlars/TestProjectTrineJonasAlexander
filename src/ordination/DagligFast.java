@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
 public class DagligFast extends Ordination {
-int[] doser = new int[4];
+double [] doser = new double[4];
 
     public DagligFast(LocalDate startDen, LocalDate slutDen, Patient patient) {
         super(startDen, slutDen, patient);
@@ -19,7 +19,7 @@ int[] doser = new int[4];
     @Override
     public double doegnDosis() {
         int sum = 0;
-        for (int d : doser) {
+        for (double d : doser) {
             sum += d;
         }
         return sum;

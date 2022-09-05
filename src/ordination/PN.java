@@ -56,6 +56,10 @@ public class PN extends Ordination {
         return (getAntalGangeGivet() * antalEnheder) / daysBetween ;
     }
 
+    public double getAntalEnheder() {
+        return antalEnheder;
+    }
+
     @Override
     public String getType() {
         return "PN";
