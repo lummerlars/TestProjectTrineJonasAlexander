@@ -1,7 +1,13 @@
 package ordination;
 
+import java.time.LocalDate;
+
 public class DagligFast extends Ordination {
 int[] doser = new int[4];
+
+    public DagligFast(LocalDate startDen, LocalDate slutDen) {
+        super(startDen, slutDen);
+    }
 
     @Override
     public double samletDosis() {
