@@ -23,8 +23,8 @@ public class PN extends Ordination {
      * Returner false ellers, og datoen givesDen ignoreres.
      */
     public boolean givDosis(LocalDate givesDen) {
-        LocalDate startDate = super.getStartDen();
-        LocalDate slutDate = super.getSlutDen();
+        LocalDate startDate = super.getStartDato();
+        LocalDate slutDate = super.getSlutDato();
         if (givesDen.isAfter(startDate) && givesDen.isBefore(slutDate)){
             for (LocalDate date : gemteDatoer){
                 if (givesDen != date){
