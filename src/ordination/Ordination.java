@@ -2,14 +2,29 @@ package ordination;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
 
 public abstract class Ordination {
     private LocalDate startDen;
     private LocalDate slutDen;
+    private Laegemiddel laegemiddel;
 
-    public Ordination(LocalDate startDen, LocalDate slutDen) {
+    public Ordination(LocalDate startDen, LocalDate slutDen, Patient patient) {
         this.startDen = startDen;
         this.slutDen = slutDen;
+        patient.addOrdination(this);
+    }
+
+    public Laegemiddel getLaegemiddel() {
+        return laegemiddel;
+    }
+
+    public void setLaegemiddel(Laegemiddel laegemiddel) {
+        this.laegemiddel = laegemiddel;
+    }
+
+    public void removeLaegemiddel(){
+        this.laegemiddel = null;
     }
 
     public LocalDate getStartDen() {
