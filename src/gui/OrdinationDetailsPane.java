@@ -2,6 +2,7 @@ package gui;
 
 import controller.Controller;
 import javafx.scene.control.*;
+import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import ordination.DagligSkaev;

@@ -9,6 +9,8 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
 import ordination.Laegemiddel;
 
+import java.awt.*;
+
 public class StatistikPane extends GridPane {
 	private final TextField ordinationerPerVægtPerLægemiddel = new TextField();
 	private final TextField txfVægtFra = new TextField();
