@@ -18,6 +18,10 @@ public class Patient {
         ordinations.add(ordination);
     }
 
+    public ArrayList<Ordination> getOrdinations() {
+        return ordinations;
+    }
+
     public String getCprnr() {
         return cprnr;
     }

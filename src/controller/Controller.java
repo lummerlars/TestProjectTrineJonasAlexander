@@ -58,15 +58,15 @@ public abstract class Controller {
     public static DagligSkaev opretDagligSkaevOrdination(
             LocalDate startDen, LocalDate slutDen, Patient patient, Laegemiddel laegemiddel,
             LocalTime[] klokkeSlet, double[] antalEnheder) {
-        DagligSkaev dagligSkaev = null;
-        if (startDen.isAfter(slutDen)){
+        DagligSkaev dagligSkaev;
+        if (startDen.isAfter(slutDen) || klokkeSlet.length != antalEnheder.length){
             throw new IllegalArgumentException();
-        } else if (klokkeSlet.length != antalEnheder.length){
+        } else {
             dagligSkaev = new DagligSkaev(startDen,slutDen,patient);
             dagligSkaev.setLaegemiddel(laegemiddel);
-            for (int i = 0; i < antalEnheder.length; i++) {
-                if (antalEnheder[i] >= 0){
-                    dagligSkaev.opretDosis(klokkeSlet,antalEnheder);
+            for (int i = 0; i < klokkeSlet.length; i++) {
+                for (int j = 0; j < antalEnheder.length; j++) {
+                    dagligSkaev.opretDosis(klokkeSlet[i],antalEnheder[j]);
                 }
             }
         }
@@ -79,7 +79,11 @@ public abstract class Controller {
      * kastes en IllegalArgumentException.
      */
     public static void ordinationPNAnvendt(PN ordination, LocalDate dato) {
-
+        if (!ordination.givDosis(dato)){
+            throw new IllegalArgumentException();
+        } else {
+            ordination.givDosis(dato);
+        }
     }
 
     /**
@@ -87,15 +91,29 @@ public abstract class Controller {
      * (afhænger af patientens vægt).
      */
     public static double anbefaletDosisPrDoegn(Patient patient, Laegemiddel laegemiddel) {
-
-        return 0;
+        if (patient.getVaegt() < 25){
+            return laegemiddel.getEnhedPrKgPrDoegnLet();
+        } else if(patient.getVaegt() >= 25 && patient.getVaegt() <= 120) {
+            return laegemiddel.getEnhedPrKgPrDoegnNormal();
+        } else {
+            return laegemiddel.getEnhedPrKgPrDoegnTung();
+        }
     }
 
     /** Returner antal ordinationer for det givne vægtinterval og det givne lægemiddel. */
     public static int antalOrdinationerPrVaegtPrLaegemiddel(
             double vaegtStart, double vaegtSlut, Laegemiddel laegemiddel) {
-
-        return 0;
+        int sum = 0;
+        for (Patient patient : getAllPatienter()){
+            for (Ordination ordination : patient.getOrdinations()){
+                if (ordination.getLaegemiddel() == laegemiddel){
+                    if (patient.getVaegt() >= vaegtStart && patient.getVaegt() <= vaegtSlut){
+                        sum++;
+                    }
+                }
+            }
+        }
+        return sum;
     }
 
     public static List<Patient> getAllPatienter() {
