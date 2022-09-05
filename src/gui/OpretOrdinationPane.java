@@ -10,6 +10,7 @@ import javafx.scene.paint.Color;
 import ordination.Laegemiddel;
 import ordination.Patient;
 
+
 public class OpretOrdinationPane extends GridPane {
 	private final ListView<Patient> lstPatient = new ListView<>();
 	private final ListView<Laegemiddel> lstLaegemiddel = new ListView<>();
