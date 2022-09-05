@@ -10,19 +10,19 @@ import java.util.ArrayList;
 
 public class DagligSkaev extends Ordination {
 
-    private final ArrayList<Dosis> dosises = new ArrayList<>();
+    private final ArrayList<Dosis> doser = new ArrayList<>();
 
     public DagligSkaev(LocalDate startDen, LocalDate slutDen, Patient patient) {
         super(startDen, slutDen, patient);
     }
 
-    public ArrayList<Dosis> getDosises() {
-        return new ArrayList<>(dosises);
+    public ArrayList<Dosis> getDoser() {
+        return new ArrayList<>(doser);
     }
 
     public void opretDosis(LocalTime tid, double antal) {
         Dosis dosis = new Dosis(tid, antal);
-        dosises.add(dosis);
+        doser.add(dosis);
     }
 
     @Override
@@ -34,7 +34,7 @@ public class DagligSkaev extends Ordination {
     @Override
     public double doegnDosis() {
         double total = 0;
-        for(Dosis d : dosises){
+        for(Dosis d : doser){
             total += d.getAntal();
         }
         return total;
