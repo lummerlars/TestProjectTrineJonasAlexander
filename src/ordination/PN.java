@@ -33,7 +33,7 @@ public class PN extends Ordination {
 
     @Override
     public double doegnDosis() {
-        int daysBetween =
+//        int daysBetween =
         return getAntalGangeGivet() * antalEnheder ;
     }
 
