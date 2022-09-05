@@ -1,7 +1,11 @@
 package ordination;
 
+import com.sun.javafx.scene.paint.GradientUtils;
+
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.Period;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 
 public class DagligSkaev extends Ordination {
@@ -23,16 +27,21 @@ public class DagligSkaev extends Ordination {
 
     @Override
     public double samletDosis() {
-        return 0;
+        int day = (int) (int) ChronoUnit.DAYS.between(super.getStartDen(),super.getSlutDen());
+        return doegnDosis() * day;
     }
 
     @Override
     public double doegnDosis() {
-        return 0;
+        double total = 0;
+        for(Dosis d : dosises){
+            total += d.getAntal();
+        }
+        return total;
     }
 
     @Override
     public String getType() {
-        return null;
+        return "DagligSkæv";
     }
 }
