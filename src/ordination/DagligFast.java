@@ -1,6 +1,7 @@
 package ordination;
 
 public class DagligFast extends Ordination {
+int[] doser = new int[4];
 
     @Override
     public double samletDosis() {
@@ -14,6 +15,6 @@ public class DagligFast extends Ordination {
 
     @Override
     public String getType() {
-        return null;
+        return "DagligFast";
     }
 }
