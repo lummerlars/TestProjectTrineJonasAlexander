@@ -1,5 +1,6 @@
 package controller;
 
+import java.sql.SQLOutput;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
@@ -57,8 +58,19 @@ public abstract class Controller {
     public static DagligSkaev opretDagligSkaevOrdination(
             LocalDate startDen, LocalDate slutDen, Patient patient, Laegemiddel laegemiddel,
             LocalTime[] klokkeSlet, double[] antalEnheder) {
-
-        return null;
+        DagligSkaev dagligSkaev = null;
+        if (startDen.isAfter(slutDen)){
+            throw new IllegalArgumentException();
+        } else if (klokkeSlet.length != antalEnheder.length){
+            dagligSkaev = new DagligSkaev(startDen,slutDen,patient);
+            dagligSkaev.setLaegemiddel(laegemiddel);
+            for (int i = 0; i < antalEnheder.length; i++) {
+                if (antalEnheder[i] >= 0){
+                    dagligSkaev.opretDosis(klokkeSlet,antalEnheder);
+                }
+            }
+        }
+        return dagligSkaev;
     }
 
     /**

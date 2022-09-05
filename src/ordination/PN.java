@@ -52,8 +52,7 @@ public class PN extends Ordination {
 
     @Override
     public double doegnDosis() {
-        int daysBetween = (int)ChronoUnit.DAYS.between(super.getStartDen(),super.getSlutDen());
-        return (getAntalGangeGivet() * antalEnheder) / daysBetween ;
+        return (getAntalGangeGivet() * antalEnheder) / super.antalDage() ;
     }
 
     @Override
