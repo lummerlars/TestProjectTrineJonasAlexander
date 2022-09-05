@@ -6,6 +6,7 @@ public class Dosis {
     private final LocalTime tid;
     private final double antal;
 
+
     public Dosis(LocalTime tid, double antal) {
         this.tid = tid;
         this.antal = antal;
