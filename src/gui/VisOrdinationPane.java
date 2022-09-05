@@ -23,7 +23,7 @@ public class VisOrdinationPane extends GridPane {
         lstPatient.getItems().setAll(Controller.getAllPatienter());
         lstPatient.getSelectionModel().selectedIndexProperty().addListener(observable -> {
             lstOrdination.getItems().setAll(
-                    lstPatient.getSelectionModel().getSelectedItem().getOrdinationer());
+                    lstPatient.getSelectionModel().getSelectedItem().getOrdinations());
         });
         lstPatient.getSelectionModel().selectFirst();
 
@@ -60,7 +60,7 @@ public class VisOrdinationPane extends GridPane {
         if (lstOrdination.getSelectionModel().getSelectedItem() != null) {
             selected = lstOrdination.getSelectionModel().getSelectedIndex();
         }
-        lstOrdination.getItems().setAll(lstPatient.getSelectionModel().getSelectedItem().getOrdinationer());
+        lstOrdination.getItems().setAll(lstPatient.getSelectionModel().getSelectedItem().getOrdinations());
         lstOrdination.getSelectionModel().select(selected);
     }
 }

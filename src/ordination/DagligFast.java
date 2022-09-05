@@ -4,10 +4,22 @@ import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
 public class DagligFast extends Ordination {
-double [] doser = new double[4];
+    private Dosis[] doser = new Dosis[4];
 
     public DagligFast(LocalDate startDen, LocalDate slutDen, Patient patient) {
         super(startDen, slutDen, patient);
+    }
+
+    public void addDoser(Dosis dosis){
+        for (int i = 0; i < doser.length; i++) {
+            if (doser[i] == null){
+                doser[i] = dosis;
+            }
+        }
+    }
+
+    public Dosis[] getDoser() {
+        return doser;
     }
 
     @Override
@@ -18,8 +30,8 @@ double [] doser = new double[4];
     @Override
     public double doegnDosis() {
         int sum = 0;
-        for (double d : doser) {
-            sum += d;
+        for (Dosis d : doser) {
+            sum += d.getAntal();
         }
         return sum;
     }

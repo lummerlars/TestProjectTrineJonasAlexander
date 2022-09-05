@@ -27,7 +27,7 @@ public class DagligSkaev extends Ordination {
 
     @Override
     public double samletDosis() {
-        int day = (int) ChronoUnit.DAYS.between(super.getStartDen(),super.getSlutDen());
+        int day = (int) ChronoUnit.DAYS.between(super.getStartDato(),super.getSlutDato());
         return doegnDosis() * day;
     }
 
