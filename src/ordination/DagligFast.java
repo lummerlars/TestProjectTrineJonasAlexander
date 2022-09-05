@@ -12,8 +12,7 @@ double [] doser = new double[4];
 
     @Override
     public double samletDosis() {
-        int antalDoegn = (int) ChronoUnit.DAYS.between(getStartDen(),getSlutDen());
-        return antalDoegn * doegnDosis();
+        return antalDage() * doegnDosis();
     }
 
     @Override
