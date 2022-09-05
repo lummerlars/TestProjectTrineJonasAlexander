@@ -23,8 +23,14 @@ public abstract class Controller {
     public static PN opretPNOrdination(
             LocalDate startDato, LocalDate slutDato, Patient patient, Laegemiddel laegemiddel,
             double antal) {
-
-        return null;
+        PN newPn = null;
+        if (startDato.isAfter(slutDato)){
+            throw new IllegalArgumentException();
+        } else {
+            newPn = new PN(startDato,slutDato,patient,antal);
+            newPn.setLaegemiddel(laegemiddel);
+        }
+        return newPn;
     }
 
     /**
