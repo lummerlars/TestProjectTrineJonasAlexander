@@ -9,9 +9,10 @@ public class PN {
      * Registrer, at der er givet en dosis paa dagen givesDen.
      * Returner true, hvis givesDen er inden for ordinationens gyldighedsperiode, og datoen huskes.
      * Returner false ellers, og datoen givesDen ignoreres.
+     *
+     * Min rettelse
      */
     public boolean givDosis(LocalDate givesDen) {
-
         return false;
     }
 
