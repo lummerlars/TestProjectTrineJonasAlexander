@@ -8,12 +8,11 @@ import java.util.List;
 
 public class PN extends Ordination {
     private double antalEnheder;
-    private List<LocalDate> gemteDatoer;
+    private List<LocalDate> gemteDatoer = new ArrayList<>();
 
     public PN(LocalDate startDen, LocalDate slutDen,Patient patient, double antalEnheder) {
         super(startDen, slutDen,patient);
         this.antalEnheder = antalEnheder;
-        gemteDatoer = null;
     }
 
 
