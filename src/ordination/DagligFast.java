@@ -10,11 +10,9 @@ public class DagligFast extends Ordination {
         super(startDen, slutDen, patient);
     }
 
-    public void addDoser(Dosis dosis){
-        for (int i = 0; i < doser.length; i++) {
-            if (doser[i] == null){
-                doser[i] = dosis;
-            }
+    public void addDoser(Dosis dosis, int index){
+        if (doser[index] == null){
+            doser[index] = dosis;
         }
     }
 
