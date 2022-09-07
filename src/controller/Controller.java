@@ -81,9 +81,7 @@ public abstract class Controller {
             dagligSkaev = new DagligSkaev(startDen,slutDen,patient);
             dagligSkaev.setLaegemiddel(laegemiddel);
             for (int i = 0; i < klokkeSlet.length; i++) {
-                for (int j = 0; j < antalEnheder.length; j++) {
-                    dagligSkaev.opretDosis(klokkeSlet[i],antalEnheder[j]);
-                }
+                dagligSkaev.opretDosis(klokkeSlet[i],antalEnheder[i]);
             }
         }
         return dagligSkaev;
