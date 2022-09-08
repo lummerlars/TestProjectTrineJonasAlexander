@@ -24,7 +24,7 @@ public abstract class Controller {
     public static PN opretPNOrdination(
             LocalDate startDato, LocalDate slutDato, Patient patient, Laegemiddel laegemiddel,
             double antal) {
-        PN newPn = null;
+        PN newPn;
         if (startDato.isAfter(slutDato)){
             throw new IllegalArgumentException();
         } else {
@@ -95,8 +95,6 @@ public abstract class Controller {
     public static void ordinationPNAnvendt(PN ordination, LocalDate dato) {
         if (!ordination.givDosis(dato)){
             throw new IllegalArgumentException();
-        } else {
-            ordination.givDosis(dato);
         }
     }
 

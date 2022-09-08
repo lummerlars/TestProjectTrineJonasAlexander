@@ -24,24 +24,6 @@ class ControllerTest {
         l4 = new Laegemiddel("Paracetamol",1,1.5,2,"Ml");
     }
 
-//
-//    @Test
-//    void opretPNOrdination() {
-//
-//    }
-//
-//    @Test
-//    void opretDagligFastOrdination() {
-//    }
-//
-//    @Test
-//    void opretDagligSkaevOrdination() {
-//    }
-//
-//    @Test
-//    void ordinationPNAnvendt() {
-//    }
-
     @Test
     void anbefaletDosisPrDoegnLet() {
         Double ad1 = Controller.anbefaletDosisPrDoegn(p1,l3);
@@ -63,24 +45,4 @@ class ControllerTest {
         Double ad3 = Controller.anbefaletDosisPrDoegn(p5,l3);
         assertEquals(0.16,ad3);
     }
-
-//    @Test
-//    void antalOrdinationerPrVaegtPrLaegemiddel() {
-//    }
-//
-//    @Test
-//    void getAllPatienter() {
-//    }
-//
-//    @Test
-//    void getAllLaegemidler() {
-//    }
-//
-//    @Test
-//    void opretPatient() {
-//    }
-//
-//    @Test
-//    void opretLaegemiddel() {
-//    }
 }

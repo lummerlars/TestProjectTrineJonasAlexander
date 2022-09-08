@@ -25,23 +25,19 @@ public class PN extends Ordination {
         LocalDate startDate = super.getStartDato();
         LocalDate slutDate = super.getSlutDato();
         if ((givesDen.isEqual(startDate) || givesDen.isAfter(startDate)) && (givesDen.isEqual(slutDate) || givesDen.isBefore(slutDate))){
-            for (LocalDate date : gemteDatoer){
-                if (givesDen != date){
-                    gemteDatoer.add(givesDen);
-                    return true;
-                }
-            }
+            gemteDatoer.add(givesDen);
+            return true;
         }
         return false;
     }
 
     /** Returner antal gange ordinationen er anvendt. */
     public int getAntalGangeGivet() {
-        int antalDage = 0;
-        for (LocalDate date : gemteDatoer){
-            antalDage++;
-        }
-        return antalDage;
+        return gemteDatoer.size();
+    }
+
+    public List<LocalDate> getGemteDatoer() {
+        return gemteDatoer;
     }
 
     @Override

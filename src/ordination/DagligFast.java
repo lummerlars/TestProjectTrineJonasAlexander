@@ -16,6 +16,11 @@ public class DagligFast extends Ordination {
         }
     }
 
+    @Override
+    public int antalDage() {
+        return super.antalDage();
+    }
+
     public Dosis[] getDoser() {
         return doser;
     }
@@ -27,7 +32,7 @@ public class DagligFast extends Ordination {
 
     @Override
     public double doegnDosis() {
-        int sum = 0;
+        double sum = 0;
         for (Dosis d : doser) {
             sum += d.getAntal();
         }
