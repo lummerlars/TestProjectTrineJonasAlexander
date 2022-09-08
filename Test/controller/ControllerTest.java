@@ -44,7 +44,6 @@ class ControllerTest {
         assertNotNull(patient);
         assertEquals("101010-2020",patient.getCprnr());
         assertEquals("Allan Poulsen",patient.getNavn());
-
         ArrayList<Patient> expected = new ArrayList<>();
         expected.add(patient);
         assertEquals(expected,storage.getAllPatienter());
