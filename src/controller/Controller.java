@@ -104,11 +104,11 @@ public abstract class Controller {
      */
     public static double anbefaletDosisPrDoegn(Patient patient, Laegemiddel laegemiddel) {
         if (patient.getVaegt() < 25){
-            return laegemiddel.getEnhedPrKgPrDoegnLet();
+            return laegemiddel.getEnhedPrKgPrDoegnLet() * patient.getVaegt();
         } else if(patient.getVaegt() >= 25 && patient.getVaegt() <= 120) {
-            return laegemiddel.getEnhedPrKgPrDoegnNormal();
+            return laegemiddel.getEnhedPrKgPrDoegnNormal() * patient.getVaegt();
         } else {
-            return laegemiddel.getEnhedPrKgPrDoegnTung();
+            return laegemiddel.getEnhedPrKgPrDoegnTung() * patient.getVaegt();
         }
     }
 
