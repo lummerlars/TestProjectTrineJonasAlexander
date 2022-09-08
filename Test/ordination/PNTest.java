@@ -36,4 +36,32 @@ class PNTest {
         assertEquals(true,gd2);
         assertEquals(2,pn1.getGemteDatoer().size());
     }
+
+    @Test
+    void givDosisFørStartDato() {
+        boolean gd = pn1.givDosis(LocalDate.of(2022,1,9));
+        assertEquals(false,gd);
+        assertEquals(0,pn1.getGemteDatoer().size());
+    }
+
+    @Test
+    void givDosisFejlEfterSlutDato() {
+        boolean gd = pn1.givDosis(LocalDate.of(2022,1,14));
+        assertEquals(false,gd);
+        assertEquals(0,pn1.getGemteDatoer().size());
+    }
+
+    @Test
+    void givDosisPåStartDato() {
+        boolean gd = pn1.givDosis(LocalDate.of(2022,1,10));
+        assertEquals(true,gd);
+        assertEquals(1,pn1.getGemteDatoer().size());
+    }
+
+    @Test
+    void givDosisPåSlutDato() {
+        boolean gd = pn1.givDosis(LocalDate.of(2022,1,13));
+        assertEquals(true,gd);
+        assertEquals(1,pn1.getGemteDatoer().size());
+    }
 }
